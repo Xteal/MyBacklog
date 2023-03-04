@@ -46,8 +46,8 @@ export default function Slug() {
         <>
             {game!=null && (
             <>
-                <div className='relative mt-5 container mx-auto rounded-lg overflow-hidden px-10 xl:px-0'>
-                    <Image src={game.imageUrl} layout="responsive" width={460} height={215} alt="" />
+                <div className='relative mt-5 container mx-auto overflow-hidden px-10 xl:px-0'>
+                    <Image src={game.imageUrl} layout="responsive rounded-lg" width={460} height={215} alt="" />
                 </div>
                 <div className='relative mt-5 container mx-auto'>
                     <div className='flex items-center text-4xl font-bold px-10'>{game.score && <Score score={game.score} /> } {game.name}</div>
