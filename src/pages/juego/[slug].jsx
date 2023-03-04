@@ -1,7 +1,6 @@
 import Layout from '@/components/Layout';
 import Score from '@/components/Score';
 import Image from 'next/image';
-import { slugify } from '@/utils/slugify';
 import { useState, useEffect } from 'react';
 import { HandThumbUpIcon, HandThumbDownIcon } from '@heroicons/react/24/solid'
 import { useRouter } from 'next/router';
@@ -11,33 +10,7 @@ import Loading from '@/components/Loading';
 export default function Slug() {
     const router = useRouter()
     const slug = router.query.slug
-    const { games, isLoading } = useFetchGames()
-    const [ video, setVideo ] = useState(null);
-    const [ game, setGame ] = useState(null);
-
-    const parseVideo = (game) => {
-        if(game.video) {
-            const video = game.video.split('list=');
-            const videoIdList = video[1];
-            setVideo(videoIdList);
-        }
-    }
-
-    useEffect(() => {
-        const getGame = async () => {
-            const game = games.find((game) => slugify(game.name) === slug)
-            if(!game) {
-                router.push('/404');
-                return false;
-            }
-            parseVideo(game);
-            setGame(game)
-      
-        } 
-        if(!isLoading && games)
-            getGame();
-            
-    }, [games, isLoading])
+    const { game, isLoading } = useFetchGames(slug)
 
   return (
     <Layout title={game ? game.name : "Cargando..."}>
@@ -47,7 +20,7 @@ export default function Slug() {
             {game!=null && (
             <>
                 <div className='relative mt-5 container mx-auto overflow-hidden px-10 xl:px-0'>
-                    <Image src={game.imageUrl} layout="responsive rounded-lg" width={460} height={215} alt="" />
+                    <Image src={game.imageUrl} className="rounded-lg" layout="responsive" width={460} height={215} alt="" />
                 </div>
                 <div className='relative mt-5 container mx-auto'>
                     <div className='flex items-center text-4xl font-bold px-10'>{game.score && <Score score={game.score} /> } {game.name}</div>
@@ -76,11 +49,11 @@ export default function Slug() {
                         }
                     </div>
                 </div>
-                {video && (               
+                {game.video && (               
                     <div className='bg-myGray'>
                         <div className='container mx-auto xl:py-10'>
                             <div className='flex flex-col xl:p-10 relative'>
-                                <iframe className='w-full aspect-video' src={`https://www.youtube.com/embed/videoseries?list=${video}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe className='w-full aspect-video' src={`https://www.youtube.com/embed/videoseries?list=${game.video}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>                
                     </div>
