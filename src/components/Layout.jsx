@@ -8,6 +8,7 @@ export default function Layout({ children, title = 'Warmup' }) {
         <Head>
             <title>{`${title} | Xteal`}</title>
             <meta name="description"content="Juego a todo tipo de juegos porque me gusta y lo transmito para dejarlo guardado para la posteridad." />
+            <meta name="keywords" content="gaming, twitch, xteal, streaming, gameplays, gameplay, youtube, streamer"/>
             <meta name="robots" content="index, follow" />
             <meta property="og:url" content="https://xteal.tv" />
             <meta property="og:image" content="https://warmuparena.gg/images/og-image.png" />

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Icon({icon, color="#FFFFFF", size=24, link="" }) {
     return (
-        <Link href={link} passHref className="mx-1">
+        <Link href={link} target="_blank" className="mx-1">
             {icon === "youtube" && <Youtube color={color} size={size} />}
             {icon === "twitch" && <Twitch color={color} size={size} />}
             {icon === "instagram" && <Instagram color={color} size={size} />}

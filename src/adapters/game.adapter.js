@@ -11,7 +11,9 @@ export default async function gameAdapter(results) {
             score: game[5],
             best: game[6],
             worst: game[7],
-            video: game[8]
+            video: game[8],
+            review: game[9],
+            tags: game[10]!="" ? game[10].split(",") : [],
         })
     })
 
