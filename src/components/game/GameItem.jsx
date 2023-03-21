@@ -14,7 +14,7 @@ export default function GameItem({game}) {
                         <CheckBadgeIcon className=" h-6 w-6 text-white" />
                     </div>
                 }
-                <Image src={game.imageUrl} layout="responsive" className="relative" width={460} height={215} alt="" />
+                <Image src={game.imageUrl} className="relative" width={460} height={215} alt="" />
             </div>
             <div className='flex items-center p-5 text-2xl'>{game.score && <Score score={game.score} /> } {game.name}</div>
             </div>

@@ -14,7 +14,7 @@ export default async function gameAdapter(results) {
             worst: game[7],
             video: parseVideo(game[8]),
             review: game[9],
-            tags: game[10]!="" ? game[10].split(",") : [],
+            tags: game[10]!="" ? game[10].split(",").map((item) => item.trim()) : [],
         })
     })
 

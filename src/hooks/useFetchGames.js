@@ -31,5 +31,5 @@ export default function useFetchGames(slug=null) {
         fetchGames();
     }, []);
     
-    return { games,game, isLoading };
+    return { games, game, isLoading };
 }
