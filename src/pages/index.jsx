@@ -1,4 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import Layout from '@/components/Layout';
 import useFetchGames from '@/hooks/useFetchGames';
 import GameList from '@/components/game/GameList';
@@ -9,7 +8,6 @@ export default function Home() {
 
   return (
     <>
-      <SpeedInsights />
       <Layout title="Juegos">
           {isLoading ? <Loading /> : <GameList games={games} /> }
       </Layout>
