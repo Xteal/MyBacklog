@@ -16,7 +16,7 @@ export default function GameItem({game}) {
                 }
                 <Image src={game.imageUrl} className="relative" width={460} height={215} alt="" />
             </div>
-            <div className='flex items-center p-5 text-2xl'>{game.score && <Score score={game.score} /> } {game.name}</div>
+            <div className='flex items-center p-5 text-2xl'>{game.score && <Score score={game.score} /> } <div class="text-left">{game.name}</div></div>
             </div>
         </Link>
     )

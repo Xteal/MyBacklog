@@ -5,11 +5,11 @@ export default function Score({score}) {
     const color = score >= 8 ? "text-green-500" : score >= 7 ? "text-yellow-500" : score >= 5 ? "text-orange-500" : "text-red-500";
 
     return (
-        <div className="relative inline-flex w-20 h-20">
+        <div className="relative inline-flex w-20 h-20 ">
             <div className="absolute top-0 left-0 bottom-0 right-0 flex items-center justify-center">
                 <p className={`text-sm ${color} font-bold`}>{`${score}`}</p>
             </div>
-            <svg className="absolute w-20 h-20 transform rotate-180">
+            <svg className="absolute w-20 h-20 transform rotate-180 -translate-x-1/2 left-1/2">
                 <circle
                 className={`${color} stroke-current stroke-4`}
                 cx="50%"

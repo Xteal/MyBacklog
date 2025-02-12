@@ -5,8 +5,7 @@ import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css';
 
 export default function GameFilters({games, onChange = () => {}}) {
-
-    const [query, setQuery] = useState("");
+const [query, setQuery] = useState("");
   const [tags, setTags] = useState([]);
   const [availableTags, setAvailableTags] = useState([]);
   const [filtersVisible, setFiltersVisible] = useState(false); 
