@@ -7,7 +7,7 @@ export default function useFetchGames(slug=null) {
     const [ games, setGames ] = useState([]);
     const [ game, setGame ] = useState(null);
     const { readString } = usePapaParse();
-    const [ isLoading, seIsLoading ] = useState(true);
+    const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -23,7 +23,7 @@ export default function useFetchGames(slug=null) {
                         const game = gamesAdapted.find((game) => slugify(game.name) === slug)
                             if(game) setGame(game)
                     }
-                    seIsLoading(false)
+                    setIsLoading(false)
                 },
             });
         }
